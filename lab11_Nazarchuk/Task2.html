@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрація псевдоелементів</title>
+  <style>
+    .example {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      width: 60%;
+      margin: 20px auto;
+      padding: 15px;
+      border: 2px solid #333;
+      background-color: #f9f9f9;
+    }
+
+    .pseudo-demo::before {
+      content: "👉 ";
+      color: green;
+      font-size: 20px;
+    }
+
+    .pseudo-demo::after {
+      content: " ✔";
+      color: red;
+      font-weight: bold;
+    }
+
+    .first-letter-demo::first-letter {
+      font-size: 200%;
+      color: blue;
+      font-weight: bold;
+    }
+
+    .first-line-demo::first-line {
+      color: darkred;
+      font-weight: bold;
+      background-color: #f0e0e0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="example pseudo-demo">
+    Це приклад з використанням ::before та ::after.
+  </div>
+
+  <div class="example first-letter-demo">
+    перша літера цього абзацу виділена за допомогою ::first-letter. Решта тексту лишається звичайною.
+  </div>
+
+  <div class="example first-line-demo">
+    Перший рядок цього абзацу буде стилізований за допомогою псевдоелемента ::first-line. Якщо текст переходить на новий рядок, решта не буде мати такий самий стиль.
+  </div>
+  <a href="http://nazarchuk.infy.uk/">Лабораторні роботи</a>
+</body>
+</html>

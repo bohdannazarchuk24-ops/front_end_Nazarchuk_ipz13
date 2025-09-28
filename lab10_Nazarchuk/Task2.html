@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk" test="test">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Завдання 2</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Навігаційна панель -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Чоловічий стиль</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Головна</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Каталог</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Категорії</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Костюми</a></li>
+            <li><a class="dropdown-item" href="#">Куртки</a></li>
+            <li><a class="dropdown-item" href="#">Футболки</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Контакти</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Вітальний блок -->
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-3 bg-light p-3">
+      <h4>Новинки</h4>
+      <p>Оновлення щотижня!</p>
+    </div>
+    <div class="col-md-6 bg-secondary text-white p-3 text-center">
+      <h1>Ласкаво просимо до цього магазину</h1>
+      <p>Найкращий вибір чоловічого одягу</p>
+      <p><a href="http://nazarchuk.infy.uk/">Лабораторні роботи</a></p>
+    </div>
+    <div class="col-md-3 bg-light p-3">
+      <h4>Акції</h4>
+      <p>Знижки до -50% на зимову колекцію</p>
+    </div>
+  </div>
+</div>
+
+<!-- Слайдер (Carousel) -->
+<div id="mainCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://yarmich.store/image/cache/catalog/image/cache/catalog/image1c/klasichnij-cholovichij-kostyum-trijka-svitlo-korichnevij-odnotonnij_id1166/a8be1a8a-48e4-11ef-ab8e-bc2411eca16f-850x1214.webp" class="d-block w-100" alt="Класика">
+    </div>
+    <div class="carousel-item">
+      <img src="https://img.freepik.com/premium-photo/spring-collection-casual-style-man-posing-confidently-man-attractive-casual-shirt-fashion-model-wear-casual-shirt-feel-comfortable-simple-outfit-casual-comfortable-outfit-modern-style_474717-44878.jpg?w=360" class="d-block w-100" alt="Повсякденний стиль">
+    </div>
+    <div class="carousel-item">
+      <img src="https://mad-btw.com/wp-content/uploads/2022/08/MAD-C-power-grey-04.jpg" class="d-block w-100" alt="Спорт">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- Карточки товарів -->
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://cdn.27.ua/sc--media--prod/default/77/a7/3f/77a73ffa-b38e-41d6-9a71-61bd94c62215.jpg" class="card-img-top" alt="Куртка">
+        <div class="card-body">
+          <h5 class="card-title">Стильна куртка</h5>
+          <p class="card-text">Ідеальна для осені, легка та тепла.</p>
+          <a href="#" class="btn btn-primary">Детальніше</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://ochnik.ua/picture/fit-in/1000x1400/smart/filters:quality(99):fill(white)/21904e154648f47e8d4527a4d27a64a1.jpg" class="card-img-top" alt="Футболка">
+        <div class="card-body">
+          <h5 class="card-title">Біла футболка</h5>
+          <p class="card-text">100% бавовна.Комфорт та стиль.</p>
+          <a href="#" class="btn btn-outline-secondary">Детальніше</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://yarmich.store/image/cache/catalog/image/cache/catalog/image1c/klasichnij-cholovichij-kostyum-trijka-svitlo-korichnevij-odnotonnij_id1166/a8be1a8a-48e4-11ef-ab8e-bc2411eca16f-850x1214.webp" class="card-img-top" alt="Костюм">
+        <div class="card-body">
+          <h5 class="card-title">Класичний костюм</h5>
+          <p class="card-text">Для важливих подій та ділових зустрічей.</p>
+          <a href="#" class="btn btn-success">Детальніше</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Форма зворотнього зв'язку -->
+<div class="container my-5">
+  <h2>Зв'яжіться з нами</h2>
+  <form>
+    <div class="mb-3">
+      <label for="name" class="form-label">Ім'я</label>
+      <input type="text" class="form-control" id="name" placeholder="Ваше ім'я">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Електронна пошта</label>
+      <input type="email" class="form-control" id="email" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Повідомлення</label>
+      <textarea class="form-control" id="message" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Надіслати</button>
+  </form>
+</div>
+
+<!--  Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <p class="mb-0"> 2025 Чоловічий стиль. Усі права захищені.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

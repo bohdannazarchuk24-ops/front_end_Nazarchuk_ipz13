@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Демонстрація HTML-форми</title>
+</head>
+<body>
+    <h1>Демонстрація HTML-форми</h1>
+
+    <form action="#" method="post">
+        <fieldset>
+            <legend>1. Однорядкове текстове поле</legend>
+            <label for="name">Ім’я:</label>
+            <input type="text" id="name" name="name" placeholder="Введіть ваше ім’я" maxlength="50" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>2. Багаторядкова текстова область</legend>
+            <label for="message">Повідомлення:</label><br>
+            <textarea id="message" name="message" rows="5" cols="40" placeholder="Ваш текст тут..."></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>3. Типи полів: password, email, range</legend>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password"><br><br>
+
+            <label for="range">Діапазон (0-100):</label>
+            <input type="range" id="range" name="range" min="0" max="100" step="5" value="50">
+        </fieldset>
+
+        <fieldset>
+            <legend>4. Перемикачі (radio) з кнопкою надсилання</legend>
+            <label><input type="radio" name="gender" value="male" checked> Чоловік</label>
+            <label><input type="radio" name="gender" value="female"> Жінка</label><br><br>
+
+            <label><input type="radio" name="newsletter" value="yes"> Підписатися</label>
+            <label><input type="radio" name="newsletter" value="no" checked> Не підписуватись</label><br><br>
+
+            <input type="submit" value="Відправити">
+        </fieldset>
+
+        <fieldset>
+            <legend>6. Прапорці (checkbox)</legend>
+            <label><input type="checkbox" name="hobby" value="reading"> Читання</label><br>
+            <label><input type="checkbox" name="hobby" value="sports"> Спорт</label><br>
+            <label><input type="checkbox" name="hobby" value="music"> Музика</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>7. Випадаючий список (select) з optgroup</legend>
+            <label for="city">Оберіть місто:</label>
+            <select id="city" name="city">
+                <optgroup label="Україна">
+                    <option value="kyiv">Київ</option>
+                    <option value="lviv">Львів</option>
+                </optgroup>
+                <optgroup label="Польща">
+                    <option value="warsaw">Варшава</option>
+                    <option value="krakow">Краків</option>
+                </optgroup>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>8. Список множинного вибору</legend>
+            <label for="fruits">Улюблені фрукти (оберіть кілька):</label><br>
+            <select id="fruits" name="fruits" multiple size="4">
+                <option value="apple">Яблуко</option>
+                <option value="banana">Банан</option>
+                <option value="orange">Апельсин</option>
+                <option value="grape">Виноград</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>9. Кнопка для очищення форми</legend>
+            <input type="reset" value="Очистити форму">
+        </fieldset>
+
+        <fieldset>
+            <legend>10. Нейтральна кнопка з обробником події</legend>
+            <input type="button" value="Click me!" onClick='alert("Oh, you have been clicked me!!!")'>
+        </fieldset>
+    </form>
+    <a href="http://nazarchuk.infy.uk/">Лабораторні роботи</a>
+</body>
+</html>
