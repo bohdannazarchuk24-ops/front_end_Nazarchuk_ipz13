@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Дослідження console.*</title>
+</head>
+<body>
+  <h2>Відкрий Console (F12) → вкладка Console</h2>
+  <script>
+
+    console.info("Це інформаційне повідомлення (info).");
+
+    console.warn("Це попередження (warn): щось може піти не так.");
+
+    console.error("Це повідомлення про помилку (error)!");
+
+    const user = {
+      name: "Ірина",
+      age: 28,
+      address: {
+        city: "Львів",
+        street: "Шевченка"
+      }
+    };
+    console.dir(user); 
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "Це параграф для console.dirxml";
+    document.body.appendChild(paragraph);
+    console.dirxml(paragraph); 
+
+    console.time("Вимір часу обчислення");
+
+    let sum = 0;
+    for (let i = 0; i < 1_000_000; i++) {
+      sum += i;
+    }
+
+    console.timeEnd("Вимір часу обчислення");
+
+    let x = 5;
+    console.assert(x > 10, " x має бути більшим за 10, але зараз x =", x); 
+    console.assert(x < 10, " x менше 10"); 
+
+    console.profile("Мій профіль");
+    for (let i = 0; i < 100000; i++) {
+      Math.sqrt(i);
+    }
+    console.profileEnd("Мій профіль");
+
+  </script>
+</body>
+</html>
+
+
+
+

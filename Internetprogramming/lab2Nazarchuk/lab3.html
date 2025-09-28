@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор таблиці</title>
+  <script>
+    let rows, cols;
+
+    function buildTable() {
+      rows = parseInt(document.getElementById('t_str').value);
+      cols = parseInt(document.getElementById('t_stb').value);
+
+      let tableHTML = "<table border='1'>\n";
+      let array = [];
+
+      for (let i = 1; i <= rows; i++) {
+        tableHTML += "<tr>\n";
+        array[i] = [];
+        for (let j = 1; j <= cols; j++) {
+          let value = -5 * i + 3 * j; 
+          array[i][j] = value;
+          tableHTML += "<td><input type='text' id='cell_" + i + "_" + j + "' value='" + value + "' readonly></td>\n";
+        }
+        tableHTML += "</tr>\n";
+      }
+
+      tableHTML += "</table>";
+      document.getElementById('tableDiv').innerHTML = tableHTML;
+    }
+
+    function calculate() {
+      let result = "";
+      let sum = 0;
+      let variant = 14; 
+
+      switch (variant) {
+        case 1:
+        case 6:
+        case 11:
+        case 16:
+        case 21:
+        case 26:
+
+          for (let i = 1; i <= rows; i++) {
+            for (let j = 1; j <= cols; j++) {
+              sum += parseInt(document.getElementById('cell_' + i + '_' + j).value);
+            }
+          }
+          result = "Сума всіх елементів: " + sum;
+          break;
+
+        case 2:
+        case 7:
+        case 12:
+        case 17:
+        case 22:
+        case 27:
+
+          for (let j = 1; j <= cols; j++) {
+            sum += parseInt(document.getElementById('cell_' + 2 + '_' + j).value);
+          }
+          result = "Сума елементів другого рядка: " + sum;
+          break;
+
+        case 3:
+        case 8:
+        case 13:
+        case 18:
+        case 23:
+        case 28:
+
+          for (let i = 1; i <= rows; i++) {
+            sum += parseInt(document.getElementById('cell_' + i + '_' + 3).value);
+          }
+          result = "Сума елементів третього стовпця: " + sum;
+          break;
+
+        case 4:
+        case 9:
+        case 14:
+        case 19:
+        case 24:
+
+          for (let i = 1; i <= Math.min(rows, cols); i++) {
+            sum += parseInt(document.getElementById('cell_' + i + '_' + i).value);
+          }
+          result = "Сума елементів на діагоналі: " + sum;
+          break;
+
+        case 5:
+        case 10:
+        case 15:
+        case 20:
+        case 25:
+
+          sum = 1;
+          for (let i = 1; i <= rows; i++) {
+            sum *= parseInt(document.getElementById('cell_' + i + '_' + cols).value);
+          }
+          result = "Добуток елементів останнього стовпця: " + sum;
+          break;
+        
+        default:
+          result = "Невідомий варіант.";
+          break;
+      }
+
+      alert(result); 
+    }
+  </script>
+</head>
+<body>
+  <h2>Калькулятор таблиці</h2>
+  <form id="main_form">
+    <table>
+      <tr>
+        <td>Кількість рядків:</td>
+        <td><input type="text" id="t_str" value="5"></td>
+      </tr>
+      <tr>
+        <td>Кількість стовпців:</td>
+        <td><input type="text" id="t_stb" value="5"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="Побудувати таблицю" onClick="buildTable()"></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="Розрахувати" onClick="calculate()"></td>
+      </tr>
+    </table>
+  </form>
+
+  <div id="tableDiv"></div> 
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+<h3> Завдання 4.</H3>
+<script>
+function calculateF() {
+    let x = parseFloat(main_form.t_x.value);  
+    let y = parseFloat(main_form.t_y.value); 
+    if (x > 0 && y < 0) {
+        F = -3 * x + Math.pow(y, 3);  
+    } else if (x > 0 && y >= 0) {
+        F = x + y - Math.pow(x, 2) * y;  
+    } else if (x <= 0 && y > 3) {
+        F = x * y - x;  
+    } else {
+        F = Math.pow(x, 2) + Math.pow(y, 2);  
+    }
+    main_form.t_F.value = F;
+}
+</script>
+</head>
+<body>
+<form id="main_form">
+    x<input type="text" id="t_x" value="1"><br>
+    y<input type="text" id="t_y" value="2"><br>
+    F<input type="text" id="t_F" value="" readonly><br>
+    <input type="button" onClick="calculateF();" value="Обчислити F">
+</form>
+</body>
+</html>
+

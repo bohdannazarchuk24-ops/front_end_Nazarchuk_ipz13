@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Галерея зображень</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 30px;
+    }
+    img {
+      width: 400px;
+      height: auto;
+      border: 1px solid #888;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Перегляд зображень</h2>
+
+  <img id="galleryImage" src="" alt="Зображення">
+
+  <div>
+    <button onclick="prevImage()">Назад</button>
+    <button onclick="nextImage()">Вперед</button>
+  </div>
+
+  <script>
+
+    let images = [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRss-86vRuxOArrVRmMgerLZ5pi8yCs6U7zsQ&s=Зображення1',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Ekr0y50dzU1IBDEKnrOqBaRf-LJf0XG_rRkqEl_i0YSuhaRZiXbmi0tizCor_cSqWCQ&usqp=CAU=Зображення2',
+      'https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F688029%2Fba9743c0-4240-e24f-58e5-9f9cf0d29851.png?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=f3d3bdc71aeb235e13acb3b1661ed095=Зображення3',
+      'https://techvify-japan.co.jp/wp-content/uploads/2024/12/web-app-development-with-javascript3.webp=Зображення4'
+    ];
+
+    let currentIndex = 0; 
+
+    const galleryImage = document.getElementById('galleryImage');
+
+    function showImage() {
+      galleryImage.src = images[currentIndex];
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage();
+    }
+
+    showImage();
+  </script>
+
+</body>
+</html>

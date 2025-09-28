@@ -1,0 +1,35 @@
+<html>
+<head>
+<script>
+function fun() {
+  let x = parseFloat(main_form.t_x.value);  
+  let y = parseFloat(main_form.t_y.value);  
+  let sum = 0.0;
+
+  for (let i = 2; i <= 5; i++) {
+    let numerator = x + 2 * x * y - y * y;  // x + 2xy - y^2
+    let denominator = 1;
+
+    for (let j = 1; j <= (i + 1); j++) {
+      denominator *= j;
+    }
+
+    let term = Math.pow(-1, i + 1) * (numerator / denominator);
+    
+    sum += term;
+  }
+
+  main_form.t_result.value = sum;
+}
+</script>
+</head>
+<body>
+    <h3> Завдання 5.</H3>
+  <form id="main_form">
+    x=<input type="text" id="t_x" value="1"><br>
+    y=<input type="text" id="t_y" value="2"><br>
+    Результат:<input type="text" id="t_result" value=""><br>
+    <input type="button" onClick="fun();" value="Розрахувати">
+  </form>
+</body>
+</html>

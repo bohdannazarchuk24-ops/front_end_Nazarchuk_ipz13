@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Тест з арифметики</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input[type="number"] {
+      width: 80px;
+      font-size: 16px;
+      padding: 5px;
+    }
+    button {
+      margin: 10px 5px;
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+    #question {
+      font-size: 20px;
+      margin: 15px 0;
+    }
+    #feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    #score {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="score">Загальний рахунок: 0% (0 правильних відповідей з 0)</div>
+
+  <div id="question">?</div>
+
+  <input type="number" id="userAnswer">
+  <br>
+
+  <button onclick="checkAnswer()">Перевірити</button>
+  <button onclick="nextQuestion()">Наступне завдання</button>
+
+  <div id="feedback"></div>
+
+  <script>
+    let currentQuestion = 0;
+    const totalQuestions = 5;
+    let correctAnswers = 0;
+    let a = 0, b = 0, op = '', correctResult = 0;
+
+    function generateQuestion() {
+      const operators = ['+', '-', '*', '/'];
+      a = Math.floor(Math.random() * 10);
+      b = Math.floor(Math.random() * 10);
+      op = operators[Math.floor(Math.random() * operators.length)];
+
+      if (op === '/' && b === 0) b = 1;
+
+      switch (op) {
+        case '+': correctResult = a + b; break;
+        case '-': correctResult = a - b; break;
+        case '*': correctResult = a * b; break;
+        case '/': correctResult = +(a / b).toFixed(2); break; // до 2 знаків
+      }
+
+      document.getElementById('question').textContent = `${a} ${op} ${b} = `;
+      document.getElementById('userAnswer').value = '';
+      document.getElementById('feedback').textContent = '';
+    }
+
+    function checkAnswer() {
+      if (currentQuestion >= totalQuestions) return;
+
+      const userInput = document.getElementById('userAnswer').value;
+      const userAnswer = parseFloat(userInput);
+
+      let correct = false;
+
+      if (op === '/') {
+
+        correct = Math.abs(userAnswer - correctResult) < 0.01;
+      } else {
+        correct = userAnswer === correctResult;
+      }
+
+      if (correct) {
+        correctAnswers++;
+        document.getElementById('feedback').textContent = 'Правильно';
+        document.getElementById('feedback').style.color = 'green';
+      } else {
+        document.getElementById('feedback').textContent = `Помилка, правильна відповідь «${correctResult}»`;
+        document.getElementById('feedback').style.color = 'red';
+      }
+
+      currentQuestion++;
+      updateScore();
+
+      if (currentQuestion >= totalQuestions) {
+        document.getElementById('question').textContent = 'Тест завершено.';
+      }
+    }
+
+    function nextQuestion() {
+      if (currentQuestion >= totalQuestions) return;
+      generateQuestion();
+    }
+
+    function updateScore() {
+      const percent = Math.round((correctAnswers / currentQuestion) * 100);
+      document.getElementById('score').textContent =
+        `Загальний рахунок: ${percent}% (${correctAnswers} правильних відповідей з ${currentQuestion})`;
+    }
+
+    generateQuestion();
+  </script>
+
+</body>
+</html>
+

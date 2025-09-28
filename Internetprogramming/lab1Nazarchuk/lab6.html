@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Інформація про товар</title>
+  <script>
+    let product = ["Notebook", "Nail Polish", "Nut", "Noodle"];
+    let quantity = [50, 200, 150, 300];
+    let cost = [1000, 200, 50, 20];
+
+    let selectedIndex = -1;
+
+    function fun1() {
+      let productName = document.getElementById("productName").value.trim();
+
+      selectedIndex = -1; 
+      for (let i = 0; i < product.length; i++) {
+        if (product[i].toLowerCase() === productName.toLowerCase()) {
+          selectedIndex = i;
+          break;
+        }
+      }
+
+      if (selectedIndex === -1) {
+        alert("Товар не знайдений!");
+        return;
+      }
+
+      document.getElementById("quantityField").value = quantity[selectedIndex];
+      document.getElementById("costField").value = cost[selectedIndex];
+    }
+
+    function fun2() {
+      if (selectedIndex === -1) {
+        alert("Будь ласка, спочатку виберіть товар!");
+        return;
+      }
+
+      let total = quantity[selectedIndex] * cost[selectedIndex];
+      document.getElementById("totalAmount").innerText = "Загальна сума: " + total + " грн.";
+    }
+  </script>
+</head>
+<body>
+  <h3>Інформація про товар</h3>
+
+  <form name="form1">
+
+    <label for="productName">Введіть назву товару:</label>
+    <input type="text" name="productName" id="productName" placeholder="Notebook"><br><br>
+
+    <input type="button" value="Наявна кількість і вартість" onClick="fun1();"><br><br>
+
+    <label for="quantityField">Кількість на складі:</label>
+    <input type="text" id="quantityField" disabled><br><br>
+
+    <label for="costField">Вартість за одиницю:</label>
+    <input type="text" id="costField" disabled><br><br>
+
+    <input type="button" value="Загальна сума" onClick="fun2();"><br><br>
+
+    <p id="totalAmount"></p>
+  </form>
+</body>
+</html>

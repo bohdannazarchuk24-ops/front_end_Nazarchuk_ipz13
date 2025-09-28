@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Екранна клавіатура з перемиканням розкладки</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      font-size: 18px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .keyboard {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .row {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .key {
+      padding: 10px 15px;
+      font-size: 18px;
+      cursor: pointer;
+      border: 1px solid #888;
+      border-radius: 4px;
+      background-color: #f0f0f0;
+      transition: background-color 0.2s;
+      user-select: none;
+    }
+
+    .key:hover {
+      background-color: #d0d0d0;
+    }
+
+    .clear-btn {
+      background-color: #ffcccc;
+      border-color: #cc0000;
+    }
+
+    .altshift-btn {
+      background-color: #ccffff;
+      border-color: #009999;
+    }
+
+    .clear-btn:hover {
+      background-color: #ff9999;
+    }
+
+    .altshift-btn:hover {
+      background-color: #99ffff;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Екранна клавіатура (UA / EN)</h2>
+
+  <textarea id="textOutput" placeholder="Наберіть текст тут..."></textarea>
+
+  <div class="keyboard" id="keyboard"></div>
+
+  <script>
+    
+    const layouts = {
+      ua: {
+        letters: ['а','б','в','г','ґ','д','е','є','ж','з','и','і','ї','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ь','ю','я'],
+        digits: ['0','1','2','3','4','5','6','7','8','9']
+      },
+      en: {
+        letters: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
+        digits: ['0','1','2','3','4','5','6','7','8','9']
+      }
+    };
+
+    let currentLayout = 'ua'; // початкова розкладка
+
+    const keyboard = document.getElementById('keyboard');
+    const textOutput = document.getElementById('textOutput');
+
+    function renderKeyboard() {
+      keyboard.innerHTML = ''; // очищення попередніх кнопок
+
+      const layout = layouts[currentLayout];
+
+      const digitRow = document.createElement('div');
+      digitRow.className = 'row';
+      layout.digits.forEach(d => {
+        const btn = createKeyButton(d);
+        digitRow.appendChild(btn);
+      });
+      keyboard.appendChild(digitRow);
+
+      const letters = layout.letters;
+      const rows = [letters.slice(0, 11), letters.slice(11, 22), letters.slice(22)];
+      rows.forEach(rowLetters => {
+        const row = document.createElement('div');
+        row.className = 'row';
+        rowLetters.forEach(letter => {
+          const btn = createKeyButton(letter);
+          row.appendChild(btn);
+        });
+        keyboard.appendChild(row);
+      });
+
+      const controlRow = document.createElement('div');
+      controlRow.className = 'row';
+
+      const clearBtn = document.createElement('div');
+      clearBtn.textContent = 'Очистити поле';
+      clearBtn.className = 'key clear-btn';
+      clearBtn.onclick = () => {
+        textOutput.value = '';
+      };
+      controlRow.appendChild(clearBtn);
+
+      const switchBtn = document.createElement('div');
+      switchBtn.textContent = 'Alt+Shift';
+      switchBtn.className = 'key altshift-btn';
+      switchBtn.onclick = () => {
+        currentLayout = currentLayout === 'ua' ? 'en' : 'ua';
+        renderKeyboard();
+      };
+      controlRow.appendChild(switchBtn);
+
+      keyboard.appendChild(controlRow);
+    }
+
+    function createKeyButton(char) {
+      const btn = document.createElement('div');
+      btn.className = 'key';
+      btn.textContent = char;
+      btn.onclick = () => {
+        textOutput.value += char;
+      };
+      return btn;
+    }
+
+    renderKeyboard();
+  </script>
+
+</body>
+</html>

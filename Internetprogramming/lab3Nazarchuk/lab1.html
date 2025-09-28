@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Розрахунок площі геометричної фігури</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    label {
+      display: inline-block;
+      width: 100px;
+      margin-bottom: 10px;
+    }
+    input {
+      width: 100px;
+      padding: 4px;
+    }
+    #area {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h3><b>Орієнтовний вигляд веб-сторінки:</b></h3>
+
+  <div>
+    <label for="length">Довжина</label>
+    <input type="number" id="length" value=""><br>
+
+    <label for="width">Ширина</label>
+    <input type="number" id="width" value=""><br><br>
+
+    <label>Площа</label>
+    <span id="area">—</span>
+  </div>
+
+  <script>
+
+    const lengthInput = document.getElementById("length");
+    const widthInput = document.getElementById("width");
+    const areaSpan = document.getElementById("area");
+
+    function calculateRectangleArea() {
+      const length = parseFloat(lengthInput.value);
+      const width = parseFloat(widthInput.value);
+
+      if (!isNaN(length) && !isNaN(width)) {
+        const area = length * width;
+        areaSpan.textContent = area;
+      } else {
+        areaSpan.textContent = '—';
+      }
+    }
+
+    lengthInput.addEventListener("input", calculateRectangleArea);
+    widthInput.addEventListener("input", calculateRectangleArea);
+  </script>
+
+</body>
+</html>
