@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Лабораторна робота 8(2)</title>
+<p><a href="http://nazarchuk.infy.uk/">Лабораторні роботи </a></p>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "nav main"
+        "footer footer";
+      grid-template-columns: 25% 1fr;
+      grid-template-rows: 60px 1fr 40px;
+      gap: 10px;
+      height: 100vh;
+      padding: 10px;
+    }
+
+    header, nav, main, footer {
+      padding: 10px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      overflow: auto;
+    }
+
+    header {
+      grid-area: header;
+      background: #ff9800;
+      color: white;
+    }
+
+    nav {
+      grid-area: nav;
+      background: #2196f3;
+      color: white;
+    }
+
+    main {
+      grid-area: main;
+      background: #ffffff;
+      color: #000;
+    }
+
+    footer {
+      grid-area: footer;
+      background: #ff9800;
+      color: white;
+      text-align: center;
+    }
+
+    /* ������� ����� � ���������� */
+    .long-text {
+      height: 100%;
+      overflow-y: scroll;
+    }
+
+    /*  ��������: ��� � ���� ������� */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-areas:
+          "header"
+          "main"
+          "nav"
+          "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr auto 40px;
+      }
+
+      nav {
+        background: #1976d2;
+      }
+
+      main {
+        background: #fefefe;
+      }
+    }
+
+    /*  ��: ��������� �� �������� */
+    @media (min-width: 769px) {
+      .container {
+        grid-template-areas:
+          "header header"
+          "nav main"
+          "footer footer";
+        grid-template-columns: 25% 1fr;
+      }
+    }
+
+    /*  ���� ��� ����� */
+    @media print {
+      body {
+        margin: 0;
+        font-size: 12pt;
+        background: white;
+      }
+
+      .container {
+        display: block;
+      }
+
+      header, nav, main, footer {
+        background: white !important;
+        color: black !important;
+        border: none;
+        padding: 5px;
+      }
+
+      nav, footer {
+        display: none; /* �� ������� ���� �� ����� */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>Завдання 2</header>
+    <nav>
+      <ul>
+        <li>Тут текст лише українською</li>
+      </ul>
+    </nav>
+    <main>
+      <div class="long-text">
+        <h2>Latin</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sapien vel tincidunt convallis.
+          Pellentesque et erat nec sapien scelerisque facilisis. Aenean vel porta orci. Vivamus hendrerit 
+          turpis ut metus fermentum, at placerat orci mattis. Nullam eget sapien a justo volutpat luctus. 
+          Integer non ligula purus. Morbi eleifend, justo at rutrum congue, turpis erat convallis tellus, 
+          et porta elit eros nec ante. Suspendisse sodales magna eget feugiat facilisis. Sed in dignissim erat.
+        </p>
+        <p>
+          Mauris blandit orci ac magna consectetur, a euismod lorem sagittis. Vivamus id tristique erat, 
+          vel congue sapien. Donec quis tortor quis ipsum tristique vestibulum in ac erat. Aliquam ut 
+          commodo mi, ac gravida est. Integer quis mi nunc. Donec sed urna dignissim, lobortis orci vitae, 
+          commodo leo. Quisque convallis lacus nec turpis fermentum, a posuere neque ullamcorper.
+        </p>
+        <p>
+          <!-- ����������, ��� �������� ��������� -->
+          Lorem ipsum dolor sit amet......
+        </p>
+      </div>
+    </main>
+    <footer> 2025 </footer>
+  </div>
+</body>
+</html>

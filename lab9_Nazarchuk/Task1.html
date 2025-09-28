@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Завдання 1</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .top {
+      background-color: orange;
+      color: white;
+      font-size: 24px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .top .logo-box {
+      background-color: white;
+      color: black;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border-radius: 5px;
+      font-size: 20px;
+      position: absolute;
+      left: 20px;
+    }
+
+    .middle {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+    .block {
+      flex: 1;
+      min-width: 250px;
+      box-sizing: border-box;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .block1 {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    .block2 {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .block3 {
+      background-color: white;
+      color: black;
+    }
+
+    .block4 {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .bottom {
+      background-color: orange;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    /* --- ����-������ --- */
+
+    /* ��� ���������� */
+    @media (max-width: 768px) {
+      .middle {
+        flex-direction: column;
+      }
+
+      .block {
+        min-height: 200px;
+      }
+
+      .top {
+        font-size: 18px;
+      }
+
+      .top .logo-box {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
+
+    /* ��� ����� */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .top, .bottom {
+        background-color: white !important;
+        color: black !important;
+      }
+
+      .block1, .block2, .block3, .block4 {
+        page-break-inside: avoid;
+        color: black !important;
+        background-color: #f9f9f9 !important;
+      }
+
+      .top .logo-box {
+        border: 1px solid #000;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="top">
+      <div class="logo-box">L</div>
+     Лабораторна робота 9 &copy; &euro; &hearts;
+    </div>
+
+    <div class="middle">
+      <div class="block block1">
+        <h2>Таблиця 1</h2>
+        <p>Іще одна спроба захистити лабораторну роботу.</p>
+      </div>
+
+      <div class="block block2">
+        <h2>Таблиця 2</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, massa a cursus fermentum, justo sem vestibulum nisi, vitae dictum diam quam ut neque. Vestibulum vitae nulla id velit tincidunt gravida. In scelerisque rutrum ex non bibendum. Integer hendrerit varius turpis nec tincidunt. Suspendisse nec cursus leo. Sed sed rhoncus nulla. Nulla facilisi. Donec varius turpis a orci sagittis, in fermentum nisi porttitor.
+        </p>
+        <p>
+          Phasellus imperdiet, turpis vel gravida viverra, nisi metus consequat elit, sit amet congue sem eros in nisl. Integer nec velit non libero euismod sagittis in nec metus. Aenean sit amet nulla nec leo eleifend tincidunt.
+        </p>
+      </div>
+
+      <div class="block block3">
+        <h2>Таблиця 3</h2>
+        <p>Таблиця є, код є, але от проблема - теорія.</p>
+      </div>
+
+      <div class="block block4">
+        <h2>Таблиця 4</h2>
+        <p>Намагаєшся здати теорію - не виходить, а коли доводиться перероблювати усі завдання більше 5 разів, то стає дуже сумно.</p>
+      </div>
+    </div>
+
+    <div class="bottom">
+      &copy; 2025 
+    </div>
+  </div>
+</body>
+</html>

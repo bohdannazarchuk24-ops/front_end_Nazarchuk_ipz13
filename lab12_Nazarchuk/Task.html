@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Inc - Professional Headshot Photographers</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #cc0000;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a:hover {
+            color: #777;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #f9f9f9;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #777;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        /* Studio Locator */
+        .studio-locator {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .studio-locator h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .locations {
+            margin-top: 50px;
+        }
+        
+        .location-group {
+            margin-bottom: 40px;
+        }
+        
+        .location-group h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        
+        .location-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 2px solid #ddd;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .services h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        
+        .service-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            margin: 5px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #ff0000;
+            color: #fff;
+        }
+        
+        .service-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .info-block {
+            flex: 0 0 48%;
+            margin-bottom: 40px;
+        }
+        
+        .info-block h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .tips-list {
+            margin-top: 30px;
+        }
+        
+        .tips-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 2px solid #000;
+        }
+        
+        /* Blog Section */
+        .blog {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .blog h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .blog p.subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #777;
+        }
+        
+        .blog-posts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .blog-post {
+            flex: 0 0 32%;
+            margin-bottom: 30px;
+        }
+        
+        .blog-post h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .post-meta {
+            display: flex;
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .post-meta span {
+            margin-right: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 0 0 23%;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+        
+        .footer-section ul li:hover {
+            color: #fff;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            margin-right: 15px;
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .info-block {
+                flex: 0 0 100%;
+            }
+            
+            .blog-post {
+                flex: 0 0 100%;
+            }
+            
+            .footer-section {
+                flex: 0 0 48%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Studio</div>
+                <ul class="nav-links">
+                    <li><a href="#">Individuals</a></li>
+                    <li><a href="#">Companies</a></li>
+                    <li><a href="#">The Studio</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#" class="btn">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <img src="c:\Users\Богдан\Downloads\maket-dlya-sajta-foto-studii (2).jpg" alt="logo" style="width:px;height:px;"">
+        </div>
+    </section>
+
+    <!-- Studio Locator -->
+    <section class="studio-locator">
+        <div class="container">
+              <img src="c:\Users\Богдан\Downloads\map.jpg" alt="map" style="width:px;height:px;"">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2>Our professional services</h2>
+            <div class="service-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Modeling</button>
+                <button class="filter-btn">Acting</button>
+                <button class="filter-btn">Corporate</button>
+                <button class="filter-btn">Business</button>
+                <button class="filter-btn">Professional</button>
+                <button class="filter-btn">Group</button>
+                <button class="filter-btn">Company</button>
+                <button class="filter-btn">Officer</button>
+            </div>
+            <img src="c:\Users\Богдан\Downloads\Фото 1.jpg" alt="1" style="width:200px;height:200px;">
+             <img src="c:\Users\Богдан\Downloads\Фото 2.jpg" alt="2" style="width:200px;height:200px;">
+              <img src="c:\Users\Богдан\Downloads\Фото 3.jpg" alt="3" style="width:200px;height:200px;">
+               <img src="c:\Users\Богдан\Downloads\Фото 4.jpg" alt="4" style="width:200px;height:200px;">
+                <img src="c:\Users\Богдан\Downloads\Фото 5.jpg" alt="5" style="width:200px;height:200px;">
+
+            <a href="#" class="btn" style="display: block; width: fit-content; margin: 0 auto 40px;">Check Service</a>
+            
+            <div class="service-info">
+                <div class="info-block">
+                    <h3>Why are headshots important?</h3>
+                    <p>It may not seem indispensable, but forem ipsum dolor sit amet, consectetur adipiscing elit. Donce nisl enim, finibus non malesuada vitae, porttitor vitae enim. Nullo eget fringilla libero, ut ultricies neque. Morbi id aliquet sem. Ut mattis diam sit amet erci faucibus dignissim. Aliquam erat volutpat. Curabitur eu efficitur quem.</p>
+                </div>
+                
+                <div class="info-block">
+                    <h3>5 Useful Tips</h3>
+                    <ul class="tips-list">
+                        <li>Be professional, it's worth it, because cheap looks cheap.</li>
+                        <li>It's all about the eyes and what's behind them.</li>
+                        <li>Make sure it looks like you, not like you want to be.</li>
+                        <li>Control framing, lighting & background.</li>
+                        <li>Stay chill with clothing & makeup, you must be you.</li>
+                    </ul>
+                </div>
+                
+                <div class="info-block">
+                    <h3>PROFESSIONAL HEADSHOT SERVICES</h3>
+                    <p>Studio Inc is meeeenas vulputate, sem at cueter vulputate, elit nunc sagittis ligula, vitae pulvinar mutus elit in ante. Aenean tincidunt erat ac ante placerat facilisis. Fusce sed ligula tortor. Quisque non dignissim erat. Vestibulum ante ipsum primis in faucibus.</p>
+                    <p style="margin-top: 20px;"><strong>Covid-19 Update:</strong> We are open for studio, office, and outdoor sessions. For more information on our safety procedures, visit Studio Covid-19 Guidelines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+        <div class="container">
+             <img src="c:\Users\Богдан\Downloads\clients love us.jpg" alt="clients" style="width:2000px;height:2000px;">
+            <h2>Our Blog</h2>
+            <p class="subtitle">Check our latest news.</p>
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <img src="c:\Users\Богдан\Downloads\Фото 9.jpg" alt="umbrella" style="width:200px;height:200px;">
+                    <h3>ALL ABOUT HEADSHOTS INSIDE PROFESSIONAL STUDIOS</h3>
+                    <div class="post-meta">
+                        <span>15 Comments</span>
+                        <span>June, 2020</span>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="c:\Users\Богдан\Downloads\Фото 10.jpg" alt="laptop" style="width:200px;height:200px;">
+                    <h3>HOW DO PROFESSIONALS EDIT THEIR PHOTOS AND WHAT PHOTO EDITING SOFTWARE THEY USE</h3>
+                    <div class="post-meta">
+                        <span>8 Comments</span>
+                        <span>July, 2020</span>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <img src="c:\Users\Богдан\Downloads\Фото 11.jpg" alt="photo" style="width:200px;height:200px;">
+                    <h3>BEST COURSES IN PHOTOGRAPHY FROM HOME</h3>
+                    <div class="post-meta">
+                        <span>17 Comments</span>
+                        <span>August, 2020</span>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="btn" style="display: block; width: fit-content; margin: 0 auto;">See All Posts</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Studio</h3>
+                    <ul>
+                        <li><a href="#">Individuals</a></li>
+                        <li><a href="#">Companies</a></li>
+                        <li><a href="#">The Studio</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipis.</li>
+                        <li>Donec nisi enim, mibius non malesuada vitae.</li>
+                        <li>Nulla oget fringilla libero, ut ultricies neque.</li>
+                        <li>Merbi id aliquet sem. Ut mattis diam sit amet.</li>
+                        <li>Curabitur eu officiaut quem. Fusce interdum sem.</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Studio Inc</h3>
+                    <ul>
+                        <li>125 Southern Way</li>
+                        <li>EN23 RZ</li>
+                        <li>North Middleton, UK</li>
+                        <li>(123) 345 3781</li>
+                        <li>smile@studio-inc.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Google Rating</a>
+                        <a href="#">Yelp</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2020. All rights reserved. Photos / Policy</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

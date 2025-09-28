@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        /* Властивість position */
+        .position-section {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .position-box {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .static {
+            background-color: lightblue;
+            position: static;
+        }
+
+        .relative {
+            background-color: lightgreen;
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+
+        .absolute {
+            background-color: lightcoral;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+
+        .fixed {
+            background-color: lightseagreen;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+        }
+
+        .sticky {
+            background-color: goldenrod;
+            position: sticky;
+            top: 20px;
+        }
+
+        /* Властивість float */
+        .float-section {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .float-box {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 150px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .clear-both {
+            clear: both;
+        }
+
+        /* Властивість z-index */
+        .z-index-section {
+            position: relative;
+            height: 200px;
+            background-color: #f3f3f3;
+            text-align: center;
+        }
+
+        .z-index-box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .z1 {
+            background-color: red;
+            z-index: 1;
+            top: 30px;
+            left: 30px;
+        }
+
+        .z2 {
+            background-color: blue;
+            z-index: 2;
+            top: 50px;
+            left: 50px;
+        }
+
+        .z3 {
+            background-color: green;
+            z-index: 3;
+            top: 70px;
+            left: 70px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Властивість position -->
+<div class="section position-section">
+    <div class="position-box static">1</div>
+    <div class="position-box relative">2</div>
+    <div class="position-box absolute">3</div>
+    <div class="position-box fixed">4</div>
+    <div class="position-box sticky">5</div>
+</div>
+
+<!-- Властивість float -->
+<div class="section float-section">
+    <div class="float-box float-left">6</div>
+    <div class="float-box float-right">7</div>
+    <div class="clear-both">8</div>
+</div>
+
+<!-- Властивість z-index -->
+<div class="section z-index-section">
+    <div class="z-index-box z1">9</div>
+    <div class="z-index-box z2">10</div>
+    <div class="z-index-box z3">11</div>
+</div>
+<p><a href="http://nazarchuk.infy.uk/">Лабораторні роботи </a></p>
+</body>
+</head>

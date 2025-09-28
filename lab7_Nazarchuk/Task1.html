@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+<a href="http://nazarchuk.infy.uk/">Лабораторні роботи </a>
+  <title>Лабораторна робота 7</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+    }
+
+    .row {
+      width: 100%;
+    }
+
+    .top {
+      height: 15vh;
+      background-color: orange;
+      font-size: 24px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* ������ ���� ���� ���� */
+    .top .logo-box {
+      background-color: white;
+      color: black;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border-radius: 5px;
+      font-size: 20px;
+    }
+
+    .bottom {
+      height: 15vh;
+      background-color: orange;
+      text-align: center;
+      line-height: 15vh;
+      font-size: 20px;
+      color: white;
+    }
+
+    .middle {
+      height: 70vh;
+      white-space: nowrap;
+    }
+
+    .block {
+      display: inline-block;
+      vertical-align: top;
+      width: 25%;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .block1 {
+      background-color: blue;
+      color: white;
+    }
+
+    .block2 {
+      background-color: red;
+      color: white;
+      overflow-y: auto;
+    }
+
+    .block3 {
+      background-color: white;
+      color: black;
+      transform: rotate(-5deg);
+    }
+
+    .block4 {
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="row top">
+    <div class="logo-box">1</div>
+    Таблиця! &copy; &euro; &hearts;
+  </div>
+
+  <div class="row middle">
+    <div class="block block1">
+      <h2>Стовп 1</h2>
+      <p>: &copy;, &euro;, &hearts;.</p>
+    </div>
+
+    <div class="block block2">
+      <h2>Стовп 2</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat, turpis at aliquet posuere, velit sem suscipit enim, non dapibus nisl quam nec est. Suspendisse potenti. Pellentesque euismod, massa a cursus fermentum, justo sem vestibulum nisi, vitae dictum diam quam ut neque. Vestibulum vitae nulla id velit tincidunt gravida. In scelerisque rutrum ex non bibendum. Integer hendrerit varius turpis nec tincidunt. Suspendisse nec cursus leo. Sed sed rhoncus nulla. Nulla facilisi. Donec varius turpis a orci sagittis, in fermentum nisi porttitor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+      </p>
+    </div>
+
+    <div class="block block3">
+      <h2>Стовп 3</h2>
+      <p>Посунулися трохи в бік.</p>
+    </div>
+
+    <div class="block block4">
+      <h2>Стовп 4</h2>
+      <p>Цей текст найкоротший.</p>
+    </div>
+  </div>
+
+  <div class="row bottom">
+    Я зробив веб-сторінку за допомогою блоків
+  </div>
+
+</body>
+</html>

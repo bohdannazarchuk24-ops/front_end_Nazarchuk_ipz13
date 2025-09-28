@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Завдання 3</title>
+
+  <!-- 1. @import � Google Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+  </style>
+
+  <!-- 2. @font-face ��� ���������� ��� ������������� ������ -->
+  <style>
+    @font-face {
+      font-family: 'MontserratCustom';
+      src: url('fonts/Montserrat-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      background-color: #f4f4f4;
+      font-family: 'Roboto', sans-serif; /* �������� ����� */
+    }
+
+    .top {
+      background-color: orange;
+      color: white;
+      font-size: 24px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-family: 'MontserratCustom', sans-serif; /* ��� ����� � ��������� ����� */
+    }
+
+    .middle {
+      display: flex;
+      flex: 1;
+    }
+
+    .block {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .block1 {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    .block2 {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .block3 {
+      background-color: white;
+      color: black;
+    }
+
+    .block4 {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .bottom {
+      background-color: orange;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    Лабораторна робота 9, завдання 3
+  </div>
+
+  <div class="middle">
+    <div class="block block1">
+      <h2>Таблиця 1</h2>
+      <p>Перший шрифт.</p>
+    </div>
+
+    <div class="block block2">
+      <h2>Таблиця 2</h2>
+      <p>Тут ми додаємо другий шрифт.</p>
+    </div>
+
+    <div class="block block3">
+      <h2>Таблиця 3</h2>
+      <p>Третій шрифт.</p>
+    </div>
+
+    <div class="block block4">
+      <h2>Таблиця 4</h2>
+      <p>І на останок четвертий шрифт.</p>
+    </div>
+  </div>
+
+  <div class="bottom">
+    &copy; 2025 
+  </div>
+
+</body>
+</html>

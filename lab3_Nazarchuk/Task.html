@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Таблиця 1</title>
+    <meta charset="UTF-8"/>
+    <style>
+        .table1 {
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        .table1 th {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .table1 td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+
+        /* Стиль для контейнера зображень */
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Стиль для текстових підказок */
+        .tooltip {
+            visibility: hidden;
+            width: 150px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Показ підказки при наведені */
+        .image-container:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <table class="table1">
+        <img src="c:\Users\Богдан\Downloads\0020.gif" alt="butterfly" style="width:48px;height:48px;">
+        <tr>
+            <th>Мої одногрупники</th>
+        </tr>
+        <tr>
+            <td>
+                <div class="image-container">
+                    <img src="c:\Users\Богдан\Downloads\images1.jpg" alt="1.jpg" height="100" width="100"/>
+                    <div class="tooltip">
+                        Ім'я: Адамчук Тадей Олегович <br>
+                        Дата народження: 05.03.2007 <br>
+                        Електронна пошта:  tadei.adamchuk.24@pnu.edu.ua       
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="image-container">
+                    <img src="c:\Users\Богдан\Downloads\images2.jpg" alt="2.jpg" height="100" width="100"/>
+                    <div class="tooltip">
+                        Ім'я:  Аксюк Василь Васильович <br>
+                        Дата народження: 12.10.2007    <br>
+                        Електронна пошта:vasyl.aksiuk.24@pnu.edu.ua           
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="image-container">
+                    <img src="c:\Users\Богдан\Downloads\images3.jpg" alt="3.jpg" height="100" width="100"/>
+                    <div class="tooltip">
+                        Ім'я: Хортюк Ірина Володимирівна <br>
+                        Дата народження:  29.07.2007    <br>
+                        Електронна пошта:  iryna.khortiuk.24@pnu.edu.ua       
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="image-container">
+                    <img src="c:\Users\Богдан\Downloads\images4.jpg" alt="4.jpg" height="100" width="100"/>
+                    <div class="tooltip">
+                        Ім'я:  Христина Ірина Миколаївна <br>
+                        Дата народження: 30.11.2006  <br>
+                        Електронна пошта: iryna.khrystyna.24@pnu.edu.ua 
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Коротка біографія студентів</td>
+        </tr>
+    </table>
+
+    <audio controls>
+        <source src="c:\Users\Богдан\Downloads\scott-buckley-childhood.mp3" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <video width="320" height="240" autoplay>
+        <source src="c:\Users\Богдан\Downloads\857136-hd_1280_720_24fps.mp4" type="video/ogg">
+    </video>
+<p><a href="https://pisnya.com/4331-fonova-melodiia-dlia-prezentacii-bez-sliv.html">Завантажити мелодію </a></p> 
+<p><a href="https://www.pexels.com/uk-ua/video/857136/">Завантажити відео </a></p>
+<p><a href="http://nazarchuk.infy.uk/">Лабораторні роботи </a></p>
+</body>
+</html>

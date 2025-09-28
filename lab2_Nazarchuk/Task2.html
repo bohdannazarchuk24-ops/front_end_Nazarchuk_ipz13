@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 2</title>
+    <style>
+        /* === СТИЛІ === */
+
+        #table1{
+            border: 4px solid purple;
+            width: 70%;
+            height: 200px;
+        }
+        #stovb1{
+            width: 150px;
+        }
+        #stovb2{
+            height: 150px;
+        }
+        #stovb1 td{
+            border: 1px solid purple;
+            text-align: center;
+        }
+        #stovb2 td{
+            border: 1px solid purple;
+            text-align: right;
+            vertical-align: top;
+        }
+
+        #table2{
+            border: 2px solid lightgreen;
+            width: 100%;
+            height: 150px;
+            border-spacing: 20px;
+        }
+        .t2s *{
+            border: 2px solid lightgreen;
+            padding: 0;
+        }
+
+        #table3{
+            border: 2px solid indianred;
+            width: 180%;
+            height: 150px;
+            border-spacing: 30px;
+        }
+        .t3s *{
+            border: 2px solid indianred;
+            padding: 0;
+            margin: 0;
+        }
+        .rear{
+            border: 2px solid skyblue;
+        }
+
+        #table4{
+            width: 40%;
+            height: 75px;
+            border-spacing: 1px;
+        }
+        #t4s1 *{
+            border: 2px solid lightseagreen;
+            border-bottom: 1px solid lightseagreen;
+            padding: 10px;
+            margin: 1px;
+            text-align: center;
+        }
+        #t4s2 *{
+            border: 2px solid lightseagreen;
+            border-top: 1px solid lightseagreen;
+            padding: 10px;
+            margin: 1px;
+        }
+        #t4i1{
+            color: skyblue;
+        }
+        #t4i2{
+            color: hotpink;
+        }
+
+        #table5{
+            width: 40%;
+            height: auto;
+            border-left: 4px solid hotpink;
+            border-right: 4px solid hotpink;
+            padding: 1px;
+            margin: 1px;
+            border-spacing: 0;
+        }
+        .left{
+            border-left: 2px solid hotpink;
+            border-top: 2px solid hotpink;
+            border-bottom: 2px solid hotpink;
+        }
+        .center{
+            border-top: 2px solid hotpink;
+            border-bottom: 2px solid hotpink;
+        }
+        .right{
+            border-right: 2px solid hotpink;
+            border-top: 2px solid hotpink;
+            border-bottom: 2px solid hotpink;
+        }
+        #t5i1{
+            background-color: springgreen;
+            text-align: center;
+        }
+        #t5s1 *{
+            border-top: 1px solid hotpink;
+        }
+        #t5s3 *{
+            border-bottom: 1px solid hotpink;
+            background-color: lawngreen;
+            text-align: center;
+        }
+
+        #table6 * *{
+            border: 1px solid black;
+            text-align: center;
+        }
+        #table6{
+            border: 1px solid black;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        #t6i1{
+            vertical-align: top;
+        }
+
+        #table7{
+            width: 40%;
+            height: auto;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        #table7 * *{
+            border: 3.5px solid darkblue;
+        }
+        #t7i1{
+            background-color: skyblue;
+        }
+        #t7i2{
+            background-color: pink;
+        }
+        #t7i3{
+            background-color: hotpink;
+        }
+
+        #table8{
+            border: 2px solid lightseagreen;
+        }
+        #table8 * *{
+            border: 2px solid lightseagreen;
+        }
+        #table8v1 *{
+            border-spacing: 0;
+            border: 2px solid hotpink;
+            text-align: center;
+        }
+        #table8v2 *{
+            border-spacing: 0;
+            border: 2px solid purple;
+            text-align: center;
+        }
+        .rear2{
+            border: none !important;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2><a href="http://nazarchuk.infy.uk/">Лабораторні роботи</a></h2>
+
+    <!-- Таблиця 1 -->
+    <table id="table1">
+        <tr id="stovb1">
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+        </tr>
+        <tr id="stovb2">
+            <td>Data4</td>
+            <td>Data5</td>
+            <td>Data6</td>
+        </tr>
+    </table>
+    <h3 style="width: 40%; text-align: center; margin: 0px;">Таблиця 1.</h3><hr><br>
+
+    <!-- Таблиця 2 -->
+    <table id="table2">
+        <tr class="t2s">
+            <td>Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+        </tr>
+        <tr class="t2s">
+            <td>Data4</td>
+            <td>Data5</td>
+            <td>Data6</td>
+        </tr>
+        <tr class="t2s">
+            <td>Data7</td>
+            <td>Data8</td>
+            <td>Data9</td>
+        </tr>
+    </table>
+    <h3 style="width: 50%; text-align: center; margin: 0px;">Таблиця 2.</h3><hr><br>
+
+    <!-- Таблиця 3 -->
+    <table id="table3">
+        <tr class="t3s">
+            <td class="rear">Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+        </tr>
+        <tr class="t3s">
+            <td>Data4</td>
+            <td>Data5</td>
+            <td class="rear">Data6</td>
+        </tr>
+    </table>
+    <h3 style="width: 80%; text-align: center; margin: 0px;">Таблиця 3.</h3><hr><br>
+
+    <!-- Таблиця 4 -->
+    <table id="table4">
+        <tr id="t4s1">
+            <td id="t4i1">Data1</td>
+            <td>Data2</td>
+            <td>Data3</td>
+        </tr>
+        <tr id="t4s2">
+            <td>Data4</td>
+            <td>Data5</td>
+            <td id="t4i2">Data6</td>
+        </tr>
+    </table>
+    <h3 style="width: 40%; text-align: center; margin: 0px;">Таблиця 4.</h3><hr><br>
+
+    <!-- Таблиця 5 -->
+    <table id="table5">
+        <tr id="t5s1">
+            <td class="left">1</td>
+            <td class="center">2</td>
+            <td class="right">3</td>
+        </tr>
+        <tr id="t5s2">
+            <td class="left">4</td>
+            <td id="t5i1" class="center">5</td>
+            <td class="right">6</td>
+        </tr>
+        <tr id="t5s3">
+            <td class="left">7</td>
+            <td class="center">8</td>
+            <td class="right">9</td>
+        </tr>
+    </table>
+    <h3 style="width: 40%; text-align: center; margin: 0px;">Таблиця 5.</h3><hr><br>
+
+    <!-- Таблиця 6 -->
+    <table id="table6">
+        <tr class="bold">
+            <td rowspan="2" id="t6i1">Стать</td>
+            <td>Ріст</td>
+            <td>Вага</td>
+            <td rowspan="2">Вік</td>
+        </tr>
+        <tr class="bold">
+            <td colspan="2">Середнє значення</td>
+        </tr>
+        <tr>
+            <td>чоловіки</td>
+            <td>174</td>
+            <td>78</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>жінки</td>
+            <td>165</td>
+            <td>56</td>
+            <td>25</td>
+        </tr>
+    </table>
+    <h3 style="width: 240px; text-align: center; margin: 0px;">Таблиця 6.</h3><hr><br>
+
+    <!-- Таблиця 7 -->
+    <table id="table7">
+        <tr>
+            <td id="t7i1">Data</td>
+            <td colspan="2">Data</td>
+            <td>Data</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Data</td>
+            <td rowspan="3">Data</td>
+            <td>Data</td>
+            <td>Data</td>
+        </tr>
+        <tr>
+            <td colspan="2" id="t7i2">Data</td>
+        </tr>
+        <tr>
+            <td>Data</td>
+            <td></td>
+            <td id="t7i3"></td>
+        </tr>
+    </table>
+    <h3 style="width: 40%; text-align: center; margin: 0px;">Таблиця 7.</h3><hr><br>
+
+    <!-- Таблиця 8 -->
+    <table id="table8">
+        <tr>
+            <td>Data</td>
+            <td>Data</td>
+            <td>Data</td>
+        </tr>
+        <tr>
+            <td id="table8v1">
+                <table>
+                    <tr>
+                        <td>Data1</td>
+                        <td>Data2</td>
+                        <td>Data3</td>
+                    </tr>
+                    <tr>
+                        <td>Data4</td>
+                        <td>Data5</td>
+                        <td>Data6</td>
+                    </tr>
+                </table>
+                <p class="rear2">Таблиця 8.1.</p>
+            </td>
+            <td>Data</td>
+            <td id="table8v2">
+                <table>
+                    <tr>
+                        <td>Data1</td>
+                        <td>Data2</td>
+                        <td>Data3</td>
+                    </tr>
+                </table>
+                <p class="rear2">Таблиця 8.1.</p>
+            </td>
+        </tr>
+    </table>
+    <h3 style="width: 325px; text-align: center; margin: 0px;">Таблиця 8.</h3>
+</body>
+</html>

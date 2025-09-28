@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta charset="utf-8">
+<title>Лабораторна робота 8</title>
+<p><a href="http://nazarchuk.infy.uk/">Лабораторні роботи </a></p>
+<style>
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "nav article ads extra"
+    "footer footer footer footer";
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  height: 90vh;
+  margin: 0;
+}
+
+header, footer {
+  padding: 0 20px;
+  background: orange;
+  display: flex;
+  align-items: center;
+}
+
+#pageheader {
+  background: orange;
+  grid-area: header;
+}
+
+#whiteBox {
+  width: 60px;
+  height: 30px;
+  background: white;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+#pagefooter {
+  background: orange;
+  grid-area: footer;
+}
+
+#mainarticle {
+  background: red;
+  grid-area: article;
+}
+
+#mainnav {
+  background: blue;
+  grid-area: nav;
+}
+
+#siteAds {
+  background: white;
+  grid-area: ads;
+}
+
+#extraContent {
+  background: red;
+  grid-area: extra;
+}
+</style>
+</head>
+<body>
+  <header id="pageheader">
+    <div id="whiteBox"></div>
+    <span>header</span>
+  </header>
+  <article id="mainarticle">article</article>
+  <nav id="mainnav">nav</nav>
+  <div id="siteAds">Ads</div>
+  <div id="extraContent">Extra</div>
+  <footer id="pagefooter">footer</footer>
+</body>
+</html>

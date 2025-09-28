@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Функція attr() та calc()</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ���� �� calc() */
+    .box {
+      width: calc(100% - 60px); /* 100% ������ ���� 60 ������ */
+      background-color: lightblue;
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+
+    /* ������������� � attr() */
+    .info::after {
+      content: " (�������: " attr(data-source) ")";
+      font-style: italic;
+      color: gray;
+    }
+
+    .info {
+      font-size: 18px;
+      border-left: 5px solid #007BFF;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Функція  calc()</h2>
+    <p>В цій лабораторній роботі ми продемонстрували роботу cals.</p>
+  </div>
+
+  
+    Тут вже функція attr() 
+  </p>
+
+</body>
+</html>
