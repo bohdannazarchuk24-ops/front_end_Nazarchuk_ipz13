@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Перевірка форми за допомогою RegExp</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 300px;
+            padding: 8px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .valid {
+            border-color: green;
+            color: green;
+        }
+
+        .invalid {
+            border-color: red;
+            color: red;
+        }
+
+        .message {
+            position: absolute;
+            left: 320px;
+            top: 8px;
+            color: red;
+            font-size: 14px;
+        }
+
+        .checkmark {
+            position: absolute;
+            left: 320px;
+            top: 8px;
+            color: green;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Перевірка введення даних</h2>
+
+    <div class="form-group">
+        <label>E-mail:</label>
+        <input type="text" id="email">
+        <span class="message" id="msgEmail"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Ім’я та прізвище:</label>
+        <input type="text" id="fullname">
+        <span class="message" id="msgName"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Логін:</label>
+        <input type="text" id="login">
+        <span class="message" id="msgLogin"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Пароль:</label>
+        <input type="password" id="password">
+        <span class="message" id="msgPass"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Поштовий індекс:</label>
+        <input type="text" id="index">
+        <span class="message" id="msgIndex"></span>
+    </div>
+
+    <button onclick="validateForm()">Перевірити</button>
+
+    <script>
+        function validateForm() {
+
+            let email = document.getElementById('email');
+            let fullname = document.getElementById('fullname');
+            let login = document.getElementById('login');
+            let password = document.getElementById('password');
+            let index = document.getElementById('index');
+
+            let msgEmail = document.getElementById('msgEmail');
+            let msgName = document.getElementById('msgName');
+            let msgLogin = document.getElementById('msgLogin');
+            let msgPass = document.getElementById('msgPass');
+            let msgIndex = document.getElementById('msgIndex');
+
+            let reEmail = /^[a-z0-9._%+-]+@pnu\.edu\.ua$/i;
+            let reName = /^[A-ZА-ЯІЇЄ][a-zа-яіїє']+\s[A-ZА-ЯІЇЄ]+$/;
+            let reLogin = /^[a-zA-Z0-9]+$/;
+            let rePassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[_\-!@#$%^&*])[A-Za-z\d_\-!@#$%^&*]{8,}$/;
+            let reIndex = /^\d{5}$/;
+
+            function check(input, regex, msgElem, successMsg, errorMsg) {
+                if (regex.test(input.value.trim())) {
+                    input.className = 'valid';
+                    msgElem.className = 'checkmark';
+                    msgElem.textContent = '✔';
+                } else {
+                    input.className = 'invalid';
+                    msgElem.className = 'message';
+                    msgElem.textContent = errorMsg;
+                }
+            }
+
+            check(email, reEmail, msgEmail, '✔', 'E-mail має закінчуватись на @pnu.edu.ua');
+            check(fullname, reName, msgName, '✔', 'Формат: Ім’я (з великої), Прізвище (всі великі)');
+            check(login, reLogin, msgLogin, '✔', 'Лише латинські літери та цифри');
+            check(password, rePassword, msgPass, '✔', 'Мін. 8 символів, 1 літера, 1 цифра, 1 спецсимвол');
+            check(index, reIndex, msgIndex, '✔', 'П’ять цифр (наприклад: 76018)');
+        }
+    </script>
+
+</body>
+
+</html>
