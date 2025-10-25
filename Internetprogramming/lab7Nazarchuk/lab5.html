@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 5</title>
+</head>
+
+<body>
+    <script>
+        function swapPairs(str) {
+            let result = "";
+            for (let i = 0; i < str.length; i += 2) {
+                if (i + 1 < str.length) {
+                    result += str[i + 1] + str[i];
+                } else {
+                    result += str[i];
+                }
+            }
+            return result;
+        }
+
+        let input = prompt("Введіть рядок:");
+        let result = swapPairs(input);
+
+        document.write("Результат: " + result);
+    </script>
+</body>
+
+</html>

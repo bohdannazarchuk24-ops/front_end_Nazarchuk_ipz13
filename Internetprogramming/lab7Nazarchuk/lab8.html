@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 8</title>
+</head>
+
+<body>
+    <script>
+        function isAnagram(str1, str2) {
+            str1 = str1.toLowerCase().split("").sort().join("");
+            str2 = str2.toLowerCase().split("").sort().join("");
+            return str1 === str2;
+        }
+
+        let word1 = prompt("Введіть перший рядок:");
+        let word2 = prompt("Введіть другий рядок:");
+        let result = isAnagram(word1, word2);
+
+        document.write("Чи є анаграмою: " + result);
+    </script>
+</body>
+
+</html>

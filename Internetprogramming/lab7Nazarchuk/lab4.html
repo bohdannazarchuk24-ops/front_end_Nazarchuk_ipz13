@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 4</title>
+</head>
+
+<body>
+    <script>
+        function countOccurrences(str, char) {
+            let count = 0;
+            for (let c of str) {
+                if (c === char) count++;
+            }
+            return count;
+        }
+
+        let input = prompt("Введіть рядок:");
+        let symbol = prompt("Введіть символ для підрахунку:");
+        let result = countOccurrences(input, symbol);
+
+        document.write(`Кількість входжень "${symbol}": ${result}`);
+    </script>
+</body>
+
+</html>

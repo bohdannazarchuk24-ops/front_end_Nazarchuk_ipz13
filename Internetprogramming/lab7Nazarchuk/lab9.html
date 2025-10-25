@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 9</title>
+</head>
+
+<body>
+    <script>
+        function findSubstring(str, sub) {
+            return str.indexOf(sub);
+        }
+
+        let input = prompt("Введіть рядок:");
+        let sub = prompt("Введіть підрядок для пошуку:");
+        let result = findSubstring(input, sub);
+
+        document.write("Індекс підрядка: " + result);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 3</title>
+</head>
+
+<body>
+    <script>
+        function findFirstIndex(str, char) {
+            return str.indexOf(char);
+        }
+
+        let input = prompt("Введіть рядок:");
+        let symbol = prompt("Введіть символ для пошуку:");
+        let result = findFirstIndex(input, symbol);
+
+        document.write("Індекс першого входження символу: " + result);
+    </script>
+</body>
+
+</html>

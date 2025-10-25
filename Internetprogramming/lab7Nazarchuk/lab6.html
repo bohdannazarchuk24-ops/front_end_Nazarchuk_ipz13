@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 6</title>
+</head>
+
+<body>
+    <script>
+        function checkSpam(str) {
+            let spamWords = ["100% безкоштовно", "збільшення продажів", "тільки сьогодні", "не видаляйте"];
+            str = str.toLowerCase();
+            for (let word of spamWords) {
+                if (str.includes(word)) return true;
+            }
+            return false;
+        }
+
+        let input = prompt("Введіть рядок:");
+        let result = checkSpam(input);
+
+        document.write("Чи є спам: " + result);
+    </script>
+</body>
+
+</html>

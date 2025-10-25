@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 10</title>
+</head>
+
+<body>
+    <script>
+        function censorWords(str) {
+            let badWords = ["badword", "ugly", "stupid"];
+            for (let word of badWords) {
+                let pattern = new RegExp(word, "gi");
+                str = str.replace(pattern, (match) => {
+                    if (match.length <= 2) return match;
+                    return match[0] + "*".repeat(match.length - 2) + match[match.length - 1];
+                });
+            }
+            return str;
+        }
+
+        let input = prompt("Введіть рядок:");
+        let result = censorWords(input);
+
+        document.write("Результат: " + result);
+    </script>
+</body>
+
+</html>
