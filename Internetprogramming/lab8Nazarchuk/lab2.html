@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 2 — Об’єкт Date</title>
+</head>
+
+<body>
+    <h2>Завдання 2.1. Виведення поточної дати, дня тижня і часу</h2>
+    <button onclick="showDateInfo()">Виконати</button>
+    <div id="dateOutput"></div>
+
+    <h2>Завдання 2.2. Останній день місяця</h2>
+    <label>Рік: <input type="number" id="year"></label>
+    <label>Місяць (1–12): <input type="number" id="month"></label>
+    <button onclick="lastDayOfMonth()">Знайти</button>
+    <div id="lastDay"></div>
+
+    <h2>Завдання 2.3. Секунди з початку/до кінця дня</h2>
+    <button onclick="calcSeconds()">Обчислити</button>
+    <div id="secondsResult"></div>
+
+    <script>
+        function showDateInfo() {
+            const now = new Date();
+            const months = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
+            const days = ['неділя', 'понеділок', 'вівторок', 'середа', 'четвер', 'пʼятниця', 'субота'];
+
+            const dateStr = `Дата: ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()} року`;
+            const dayStr = `День тижня: ${days[now.getDay()]}`;
+            const timeStr = `Час: ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+
+            document.getElementById("dateOutput").innerHTML = `${dateStr}<br>${dayStr}<br>${timeStr}`;
+        }
+
+        function lastDayOfMonth() {
+            const y = parseInt(document.getElementById("year").value);
+            const m = parseInt(document.getElementById("month").value);
+            if (isNaN(y) || isNaN(m)) return alert("Введіть коректні дані!");
+
+            const lastDay = new Date(y, m, 0).getDate();
+            document.getElementById("lastDay").textContent = `Останній день: ${lastDay}`;
+        }
+
+        function calcSeconds() {
+            const now = new Date();
+            const secondsPassed = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+            const secondsLeft = 86400 - secondsPassed;
+
+            document.getElementById("secondsResult").innerHTML =
+                `Пройшло секунд: ${secondsPassed}<br>Залишилось до наступного дня: ${secondsLeft}`;
+        }
+    </script>
+</body>
+
+</html>

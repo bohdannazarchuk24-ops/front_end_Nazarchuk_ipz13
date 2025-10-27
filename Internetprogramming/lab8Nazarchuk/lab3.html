@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 3 — Клас Car</title>
+</head>
+
+<body>
+    <h2>Завдання 3. Клас Car</h2>
+
+    <label>Марка: <input id="brand"></label><br>
+    <label>Модель: <input id="model"></label><br>
+    <label>Рік: <input id="year" type="number"></label><br>
+    <button onclick="showCarInfo()">Показати інформацію</button>
+    <div id="carInfo"></div>
+
+    <script>
+        class Car {
+            constructor(brand, model, year) {
+                this.brand = brand;
+                this.model = model;
+                this.year = year;
+            }
+            info() {
+                return `Авто: ${this.brand} ${this.model}, ${this.year} року.`;
+            }
+        }
+
+        function showCarInfo() {
+            const car = new Car(
+                document.getElementById("brand").value,
+                document.getElementById("model").value,
+                document.getElementById("year").value
+            );
+            document.getElementById("carInfo").textContent = car.info();
+        }
+    </script>
+</body>
+
+</html>

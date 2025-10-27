@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 5 — Статичний метод</title>
+</head>
+
+<body>
+    <h2>Завдання 5. Статичний метод у класі</h2>
+
+    <label>Число A: <input id="a" type="number"></label><br>
+    <label>Число B: <input id="b" type="number"></label><br>
+    <button onclick="calculate()">Додати</button>
+    <div id="result"></div>
+
+    <script>
+        class MathHelper {
+            static add(a, b) {
+                return a + b;
+            }
+        }
+
+        function calculate() {
+            const a = parseFloat(document.getElementById("a").value);
+            const b = parseFloat(document.getElementById("b").value);
+            document.getElementById("result").textContent = `Результат: ${MathHelper.add(a, b)}`;
+        }
+    </script>
+</body>
+
+</html>

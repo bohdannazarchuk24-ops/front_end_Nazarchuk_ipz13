@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 4 — ElectricCar</title>
+</head>
+
+<body>
+    <h2>Завдання 4. Клас ElectricCar (наслідування від Car)</h2>
+
+    <label>Марка: <input id="brand"></label><br>
+    <label>Модель: <input id="model"></label><br>
+    <label>Рік: <input id="year" type="number"></label><br>
+    <label>Батарея (kWh): <input id="battery" type="number"></label><br>
+
+    <button onclick="showInfo()">Показати інформацію</button>
+    <div id="output"></div>
+
+    <script>
+        class Car {
+            constructor(brand, model, year) {
+                this.brand = brand;
+                this.model = model;
+                this.year = year;
+            }
+            info() {
+                return `Авто: ${this.brand} ${this.model}, ${this.year} року.`;
+            }
+        }
+
+        class ElectricCar extends Car {
+            constructor(brand, model, year, battery) {
+                super(brand, model, year);
+                this.battery = battery;
+            }
+            charge() {
+                return `${this.brand} ${this.model} заряджається... Батарея: ${this.battery} kWh`;
+            }
+        }
+
+        function showInfo() {
+            const car = new ElectricCar(
+                brand.value, model.value, year.value, battery.value
+            );
+            document.getElementById("output").innerHTML =
+                `${car.info()}<br>${car.charge()}`;
+        }
+    </script>
+</body>
+
+</html>

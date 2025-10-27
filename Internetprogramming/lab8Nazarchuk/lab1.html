@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 1 — Об’єкт часу</title>
+</head>
+
+<body>
+    <h2>Завдання 1. Робота з об’єктом часу</h2>
+
+    <p><b>Поточний час:</b> <span id="currentTime"></span></p>
+
+    <label>Додати секунд: <input type="number" id="secondsInput"></label>
+    <button onclick="addSeconds()">Змінити час</button>
+
+    <script>
+        let time = { hours: 20, minutes: 30, seconds: 45 };
+
+        function displayTime() {
+            const { hours, minutes, seconds } = time;
+            document.getElementById("currentTime").textContent =
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function addSeconds() {
+            const add = parseInt(document.getElementById("secondsInput").value);
+            if (isNaN(add)) return;
+
+            let totalSeconds = time.hours * 3600 + time.minutes * 60 + time.seconds + add;
+            totalSeconds = ((totalSeconds % 86400) + 86400) % 86400;
+
+            time.hours = Math.floor(totalSeconds / 3600);
+            time.minutes = Math.floor((totalSeconds % 3600) / 60);
+            time.seconds = totalSeconds % 60;
+
+            displayTime();
+        }
+
+        displayTime();
+    </script>
+</body>
+
+</html>

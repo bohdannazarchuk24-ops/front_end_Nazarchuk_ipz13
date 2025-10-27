@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 6 — Класи з наслідуванням</title>
+</head>
+
+<body>
+    <h2>Завдання 6. Банківські рахунки</h2>
+
+    <label>Власник: <input id="owner"></label><br>
+    <label>Баланс: <input id="balance" type="number"></label><br>
+    <label>Процентна ставка (%): <input id="rate" type="number"></label><br>
+
+    <label>Сума для операції: <input id="amount" type="number"></label><br>
+
+    <button onclick="deposit()">Поповнити</button>
+    <button onclick="withdraw()">Зняти</button>
+    <button onclick="addInterest()">Нарахувати відсотки</button>
+    <button onclick="clearAll()">Очистити поля</button>
+
+    <div id="info"></div>
+
+    <script>
+        class BankAccount {
+            constructor(owner, balance) {
+                this.owner = owner;
+                this.balance = parseFloat(balance);
+            }
+            deposit(amount) {
+                this.balance += parseFloat(amount);
+            }
+            withdraw(amount) {
+                this.balance -= parseFloat(amount);
+            }
+            info() {
+                return `Власник: ${this.owner}<br>Баланс: ${this.balance.toFixed(2)} грн`;
+            }
+        }
+
+        class SavingAccount extends BankAccount {
+            constructor(owner, balance, interestRate) {
+                super(owner, balance);
+                this.interestRate = parseFloat(interestRate);
+            }
+            addInterest() {
+                this.balance += this.balance * (this.interestRate / 100);
+            }
+        }
+
+        let account;
+
+        function createAccount() {
+            if (!account) {
+                account = new SavingAccount(
+                    owner.value, balance.value, rate.value
+                );
+            }
+        }
+
+        function deposit() {
+            createAccount();
+            account.deposit(amount.value);
+            showInfo();
+        }
+
+        function withdraw() {
+            createAccount();
+            account.withdraw(amount.value);
+            showInfo();
+        }
+
+        function addInterest() {
+            createAccount();
+            account.addInterest();
+            showInfo();
+        }
+
+        function showInfo() {
+            document.getElementById("info").innerHTML = account.info();
+        }
+
+        function clearAll() {
+            document.querySelectorAll("input").forEach(i => i.value = "");
+            document.getElementById("info").innerHTML = "";
+            account = null;
+        }
+    </script>
+</body>
+
+</html>
