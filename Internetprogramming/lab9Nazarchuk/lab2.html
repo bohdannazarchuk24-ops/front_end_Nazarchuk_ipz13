@@ -3,88 +3,57 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Анімований логотип ІПЗ</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ІПЗ</title>
     <style>
         body {
-            background: radial-gradient(circle at center, #0d1b2a, #000);
-            color: white;
-            font-family: "Segoe UI", sans-serif;
-            overflow: hidden;
-            height: 100vh;
             margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #0d1b2a, #000);
+            color: #fff;
+            font-family: "Segoe UI", sans-serif;
         }
 
         #logo {
+            position: relative;
+            text-align: center;
+            cursor: pointer
+        }
+
+        .circle,
+        .square {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            cursor: pointer;
+            transform: translate(-50%, -50%)
         }
 
         .circle {
-            position: absolute;
             width: 120px;
             height: 120px;
-            border-radius: 50%;
             border: 3px solid #00b4d8;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
+            border-radius: 50%;
             animation: pulse 3s infinite alternate;
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-                border-color: #00b4d8;
-            }
-
-            100% {
-                transform: scale(1.5);
-                opacity: 0.4;
-                border-color: #90e0ef;
-            }
+        .square {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            background: #90e0ef;
+            animation: move 4s infinite alternate;
         }
 
         #text {
-            font-size: 20px;
             margin-top: 160px;
-            opacity: 0;
+            font-size: 20px;
             letter-spacing: 2px;
-            transition: opacity 0.5s ease;
-        }
-
-        .square {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #90e0ef;
-            top: 50%;
-            left: 50%;
-            border-radius: 6px;
-            transform: translate(-50%, -50%);
-        }
-
-        @keyframes moveSquare {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg) scale(1);
-            }
-
-            50% {
-                transform: translate(-200px, -200px) rotate(180deg) scale(1.5);
-                background: #00b4d8;
-            }
-
-            100% {
-                transform: translate(200px, 200px) rotate(360deg) scale(1);
-                background: #90e0ef;
-            }
+            opacity: 0;
+            transition: .5s
         }
 
         #stars span {
@@ -97,87 +66,81 @@
             animation: twinkle 2s infinite;
         }
 
+        .hidden {
+            animation: none !important
+        }
+
+        @keyframes pulse {
+            from {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+                border-color: #00b4d8
+            }
+
+            to {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: .4;
+                border-color: #90e0ef
+            }
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(-50%, -50%) rotate(0) scale(1)
+            }
+
+            50% {
+                transform: translate(-200px, -200px) rotate(180deg) scale(1.5);
+                background: #00b4d8
+            }
+
+            100% {
+                transform: translate(200px, 200px) rotate(360deg) scale(1);
+                background: #90e0ef
+            }
+        }
+
         @keyframes twinkle {
 
             0%,
             100% {
                 opacity: 0;
-                transform: scale(0.5);
+                transform: scale(.5)
             }
 
             50% {
                 opacity: 1;
-                transform: scale(1.3);
+                transform: scale(1.3)
             }
-        }
-
-        .hidden {
-            animation: none !important;
         }
     </style>
 </head>
 
 <body>
-
     <div id="logo">
-        <div class="circle" id="circle"></div>
-        <div class="square" id="square"></div>
+        <div id="circle" class="circle"></div>
+        <div id="square" class="square"></div>
         <div id="text"></div>
         <div id="stars"></div>
     </div>
-
     <script>
-        const logo = document.getElementById("logo");
-        const circle = document.getElementById("circle");
-        const square = document.getElementById("square");
-        const text = document.getElementById("text");
-        const stars = document.getElementById("stars");
+        const $ = id => document.getElementById(id),
+            c = $("circle"), s = $("square"), t = $("text"), st = $("stars"), l = $("logo"),
+            msg = "Інженерія програмного забезпечення"; let on = false;
 
-        let isAnimating = false;
-        let textStr = "Інженерія програмного забезпечення 💻";
-        let i = 0;
+        const type = (i = 0) => i < msg.length && (t.textContent += msg[i], setTimeout(() => type(++i), 100)),
+            stars = () => st.innerHTML = [...Array(20)].map(() => `<span style="
+ top:${Math.random() * innerHeight}px;
+ left:${Math.random() * innerWidth}px;
+ animation-delay:${Math.random() * 2}s"></span>`).join('');
 
-        function typeText() {
-            if (i < textStr.length) {
-                text.textContent += textStr.charAt(i);
-                i++;
-                setTimeout(typeText, 100);
-            }
-        }
-
-        function createStars() {
-            stars.innerHTML = "";
-            for (let s = 0; s < 20; s++) {
-                let star = document.createElement("span");
-                star.style.top = Math.random() * window.innerHeight + "px";
-                star.style.left = Math.random() * window.innerWidth + "px";
-                star.style.animationDelay = Math.random() * 2 + "s";
-                stars.appendChild(star);
-            }
-        }
-
-        logo.addEventListener("click", () => {
-            if (!isAnimating) {
-                isAnimating = true;
-                circle.classList.remove("hidden");
-                square.classList.remove("hidden");
-                circle.style.animation = "pulse 3s infinite alternate";
-                square.style.animation = "moveSquare 4s infinite alternate";
-                text.style.opacity = "1";
-                text.textContent = "";
-                i = 0;
-                typeText();
-                createStars();
-            } else {
-                isAnimating = false;
-                circle.classList.add("hidden");
-                square.classList.add("hidden");
-                text.style.opacity = "0";
-                stars.innerHTML = "";
-            }
-        });
+        l.onclick = () => {
+            on = !on;
+            [c, s].forEach(e => e.classList.toggle("hidden", !on));
+            t.style.opacity = on ? 1 : 0; st.innerHTML = "";
+            if (on) { t.textContent = ""; type(); stars(); }
+        };
     </script>
-
 </body>
 
 </html>
