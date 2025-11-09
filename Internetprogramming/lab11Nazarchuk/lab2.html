@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Завдання 2 - jQuery</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .container { border: 1px solid black; padding: 10px; margin: 10px; height: 150px; }
+    .item { background: lightgreen; margin: 5px; padding: 5px; }
+</style>
+</head>
+<body>
+
+<div class="container" id="container1">Контейнер 1</div>
+<div class="container" id="container2">Контейнер 2</div>
+<div class="item" id="item">Елемент для переміщення</div>
+<button id="prepend">.prependTo()</button>
+<button id="replaceAll">.replaceAll()</button>
+<button id="dimensions">Розмір і координати</button>
+
+<script>
+$(document).ready(function() {
+
+    $('#prepend').click(function() {
+        $('#item').prependTo('#container1');
+    });
+
+    $('#replaceAll').click(function() {
+        $('<div class="item">Замінений елемент</div>').replaceAll('#container2');
+    });
+
+    $('#dimensions').click(function() {
+        $('.container').each(function() {
+            let h = $(this).innerHeight();
+            let offset = $(this).offset();
+            alert('Висота: ' + h + ', координати: top=' + offset.top + ', left=' + offset.left);
+        });
+    });
+
+});
+</script>
+
+</body>
+</html>

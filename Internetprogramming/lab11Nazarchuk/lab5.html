@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 5 - jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <button id="mergeBtn">$.merge()</button>
+    <button id="noopBtn">$.noop()</button>
+    <button id="nowBtn">$.now()</button>
+    <button id="parseHtmlBtn">$.parseHTML()</button>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#mergeBtn').click(function () {
+                let arr1 = [1, 2, 3];
+                let arr2 = [4, 5, 6];
+                let merged = $.merge(arr1, arr2);
+                alert('Об’єднаний масив: ' + merged.join(', '));
+            });
+
+            $('#noopBtn').click(function () {
+                $.noop();
+                alert('$.noop() викликано (нічого не робить)');
+            });
+
+            $('#nowBtn').click(function () {
+                alert('Поточний час (мс з 1970): ' + $.now());
+            });
+
+            $('#parseHtmlBtn').click(function () {
+                let htmlString = "<div><p>Тестовий параграф</p></div>";
+                let parsed = $.parseHTML(htmlString);
+                alert('Розпарсено елементів: ' + parsed.length);
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

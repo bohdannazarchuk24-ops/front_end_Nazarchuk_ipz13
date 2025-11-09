@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Завдання 4 - jQuery</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .myClass { padding: 5px; margin: 5px; border: 1px solid gray; }
+</style>
+</head>
+<body>
+
+<ul>
+    <li class="myClass">Елемент 1</li>
+    <li class="myClass">Елемент 2</li>
+    <li class="myClass">Елемент 3</li>
+    <li class="myClass">Елемент 4</li>
+    <li class="myClass">Елемент 5</li>
+</ul>
+
+<button id="filterClass">Змінити всі з класом</button>
+<button id="filterThird">Змінити кожен третій</button>
+
+<script>
+$(document).ready(function() {
+
+    $('#filterClass').click(function() {
+        $('.myClass').filter(function() { return true; }).css({'color':'red', 'font-weight':'bold'}).append(' modify');
+    });
+
+    $('#filterThird').click(function() {
+        $('li').filter(':nth-child(3n)').css({'color':'blue', 'font-style':'italic'}).append(' modify');
+    });
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 1 - jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">Текст всередині</div>
+    <input id="input" value="Початкове значення">
+    <button id="changeHtml">Змінити HTML</button>
+    <button id="changeCss">Змінити CSS</button>
+    <button id="changeVal">Змінити value</button>
+    <button id="attrDemo">Атрибути</button>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#changeHtml').click(function () {
+                $('#box').html('Новий текст HTML!');
+            });
+
+            $('#changeCss').click(function () {
+                $('#box').css({ 'background-color': 'orange', 'color': 'white' });
+            });
+
+            $('#changeVal').click(function () {
+                let currentVal = $('#input').val();
+                alert('Поточне значення: ' + currentVal);
+                $('#input').val('Нове значення');
+            });
+
+            $('#attrDemo').click(function () {
+                let idAttr = $('#box').attr('id');
+                alert('Атрибут id: ' + idAttr);
+
+                $('#box').attr('title', 'Це підказка');
+
+                $('#box').attr({ 'data-role': 'demo', 'data-index': '1' });
+
+                $('#box').attr('data-dynamic', function (i, val) {
+                    return 'dynamic-' + i;
+                });
+
+                $('#box').removeAttr('data-index');
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

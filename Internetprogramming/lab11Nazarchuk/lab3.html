@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Завдання 3 - jQuery</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .wrapper { border: 1px solid blue; padding: 10px; margin: 10px; }
+    .nested { margin: 5px; padding: 5px; background: #f0f0f0; }
+</style>
+</head>
+<body>
+
+<div class="wrapper" id="wrapper1">
+    <div class="nested" id="nested1">Nested 1</div>
+    <div class="nested" id="nested2">Nested 2</div>
+</div>
+
+<button id="btnClosest">.closest()</button>
+<button id="btnLast">.last()</button>
+<button id="btnParentsUntil">.parentsUntil()</button>
+<button id="btnIs">.is()</button>
+<button id="btnParent">.parent()</button>
+
+<script>
+$(document).ready(function() {
+
+    $('#btnClosest').click(function() {
+        alert($('#nested1').closest('.wrapper').attr('id'));
+    });
+
+    $('#btnLast').click(function() {
+        alert($('.nested').last().attr('id'));
+    });
+
+    $('#btnParentsUntil').click(function() {
+        let parents = $('#nested1').parentsUntil('body');
+        alert('Кількість батьківських елементів: ' + parents.length);
+    });
+
+    $('#btnIs').click(function() {
+        let check = $('#nested1').is('.nested');
+        alert('Чи має клас "nested"? ' + check);
+    });
+
+    $('#btnParent').click(function() {
+        alert($('#nested1').parent().attr('id'));
+    });
+
+});
+</script>
+
+</body>
+</html>
