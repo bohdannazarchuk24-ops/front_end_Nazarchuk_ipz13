@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS-Анімації</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        #train {
+            position: relative;
+            cursor: pointer;
+        }
+
+        #path {
+            position: relative;
+            height: 50px;
+            background: #eee;
+            margin: 10px 0;
+        }
+
+        #brick {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: crimson;
+            border-radius: 8px;
+        }
+
+        progress {
+            width: 5%;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        textarea {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="https://js.cx/libs/animate.js"></script>
+</head>
+
+<body>
+
+    <h1>Демонстрація JavaScript-анімацій</h1>
+
+    <section>
+        <h2>Рух поїзда</h2>
+        <img id="train" src="https://js.cx/clipart/train.gif" alt="Train">
+    </section>
+
+    <section>
+        <h2>Вимір кадрів (requestAnimationFrame)</h2>
+        <div id="rafOutput"></div>
+    </section>
+
+    <!-- 3. Прогрес бар -->
+    <section>
+        <h2>Прогрес-бар</h2>
+        <progress id="bar"></progress>
+    </section>
+
+    <section>
+        <h2>Анімації руху блоку</h2>
+        <button onclick="runAnimation('linear')">Лінійна</button>
+        <button onclick="runAnimation('quad')">Квадратична</button>
+        <button onclick="runAnimation('circ')">Коло</button>
+        <button onclick="runAnimation('back')">Назад</button>
+        <button onclick="runAnimation('bounce')">Пружна</button>
+        <button onclick="runAnimation('elastic')">Еластична</button>
+        <button onclick="runAnimation('easeOut')">EaseOut Bounce</button>
+        <button onclick="runAnimation('easeInOut')">EaseInOut Bounce</button>
+        <div id="path">
+            <div id="brick"></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Анімований текст (ефект друку)</h2>
+        <textarea id="textExample" rows="5" cols="60">
+He took his vorpal sword in hand:
+Long time the manxome foe he sought—
+So rested he by the Tumtum tree,
+And stood awhile in thought.
+  </textarea>
+        <button onclick="animateText()">Запустити анімацію тексту</button>
+    </section>
+
+    <script>
+
+        train.onclick = function () {
+            let start = Date.now();
+            let timer = setInterval(() => {
+                let timePassed = Date.now() - start;
+                train.style.left = timePassed / 5 + 'px';
+                if (timePassed > 2000) clearInterval(timer);
+            }, 20);
+        };
+
+        let prev = performance.now(), times = 0;
+        requestAnimationFrame(function measure(time) {
+            document.getElementById("rafOutput").insertAdjacentHTML("beforeEnd", Math.floor(time - prev) + " ");
+            prev = time;
+            if (times++ < 10) requestAnimationFrame(measure);
+        });
+
+        bar.onclick = function () {
+            animate({
+                duration: 1000,
+                timing: t => t,
+                draw: p => bar.style.width = p * 100 + '%'
+            });
+        };
+
+        function bounce(timeFraction) {
+            for (let a = 0, b = 1; 1; a += b, b /= 2) {
+                if (timeFraction >= (7 - 4 * a) / 11)
+                    return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + b * b;
+            }
+        }
+        function makeEaseOut(timing) {
+            return t => 1 - timing(1 - t);
+        }
+        function makeEaseInOut(timing) {
+            return t => t < .5 ? timing(2 * t) / 2 : (2 - timing(2 * (1 - t))) / 2;
+        }
+
+        function runAnimation(type) {
+            let brick = document.getElementById("brick");
+            let timing;
+            switch (type) {
+                case 'linear': timing = t => t; break;
+                case 'quad': timing = t => Math.pow(t, 2); break;
+                case 'circ': timing = t => 1 - Math.sin(Math.acos(t)); break;
+                case 'back': timing = function (x, t) { return Math.pow(t, 2) * ((x + 1) * t - x); }.bind(null, 1.5); break;
+                case 'bounce': timing = bounce; break;
+                case 'elastic': timing = function (x, t) { return Math.pow(2, 10 * (t - 1)) * Math.cos(20 * Math.PI * x / 3 * t) }.bind(null, 1.5); break;
+                case 'easeOut': timing = makeEaseOut(bounce); break;
+                case 'easeInOut': timing = makeEaseInOut(bounce); break;
+            }
+
+            animate({
+                duration: 3000,
+                timing,
+                draw: progress => brick.style.left = progress * 500 + 'px'
+            });
+        }
+
+        function animateText() {
+            let textArea = document.getElementById("textExample");
+            let text = textArea.value, from = 0, to = text.length;
+            animate({
+                duration: 5000,
+                timing: bounce,
+                draw: progress => {
+                    let result = (to - from) * progress + from;
+                    textArea.value = text.slice(0, Math.ceil(result));
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
