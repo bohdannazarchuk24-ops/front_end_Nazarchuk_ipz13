@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Завдання 1 – jQuery ефекти</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .box {
+            width: 200px;
+            height: 150px;
+            background: #00b4d8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin: 10px;
+            border-radius: 10px;
+            display: none;
+            /* сховано спочатку */
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: #0077b6;
+            color: #fff;
+            border-radius: 6px;
+        }
+
+        button:hover {
+            background: #0096c7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Демонстрація jQuery ефектів</h2>
+
+    <div class="box">Привіт, ІПЗ!</div>
+
+    <button id="btnShow">.show()</button>
+    <button id="btnSlideDown">.slideDown()</button>
+    <button id="btnSlideToggle">.slideToggle()</button>
+    <button id="btnSlideUp">.slideUp()</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#btnShow").click(function () {
+                $(".box").show(1000);
+            });
+
+            $("#btnSlideDown").click(function () {
+                $(".box").slideDown(1000);
+            });
+
+            $("#btnSlideToggle").click(function () {
+                $(".box").slideToggle(800);
+            });
+
+            $("#btnSlideUp").click(function () {
+                $(".box").slideUp(1000);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
