@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 3</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        #clickable_div {
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin: 10px 0;
+            transition: all 0.3s;
+        }
+
+        .clicked {
+            border: 2px solid red;
+            background-color: #ffe0e0;
+        }
+
+        #image {
+            display: none;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 5px 5px 5px 0;
+            padding: 5px 10px;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+
+            $('#clickable_div').bind('click', function () {
+                $(this).addClass('clicked');
+            }).bind('dblclick', function () {
+                $(this).removeClass('clicked');
+            });
+
+            $('#singleClick').bind('click', function () { alert("Одинарний клік"); });
+            $('#doubleClick').bind('dblclick', function () { alert("Подвійний клік"); });
+
+            $('#showImage').click(function () {
+                $('#image').show();
+            });
+
+            $('#image').click(function () {
+                $(this).hide();
+            });
+
+            $('#image').mouseover(function () {
+                alert("Це демонстраційне зображення");
+            });
+
+            $("form").submit(function () {
+                if ($("input:first").val() == "correct") {
+                    alert("Успішно!");
+                    $("span").text("").hide();
+                    return false;
+                }
+                $("span").text("Неправильно!").show().fadeOut(1000);
+                return false;
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1>Завдання 3</h1>
+
+    <div id="clickable_div">Клікніть або двічі клікніть на мене</div>
+
+    <div>
+        <button id="singleClick">Одинарний клік</button>
+        <button id="doubleClick">Подвійний клік</button>
+    </div>
+
+    <div>
+        <span id="showImage" class="button">Показати зображення</span>
+        <img src="https://avatars.githubusercontent.com/u/70142?s=280&v=4" id="image" alt="Демо зображення">
+    </div>
+
+    <p>Введіть в текстове поле слово 'correct'.</p>
+    <form>
+        <div>
+            <input type="text" />
+            <input type="submit" />
+        </div>
+    </form>
+    <span></span>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 2</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        #hide_text {
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin: 10px 0;
+            transition: all 0.3s;
+        }
+
+        .hovered {
+            background-color: #d0f0d0;
+            border: 2px dashed #0a0;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 5px 0;
+            padding: 5px 10px;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            var $text = $('#hide_text');
+            $text.hide();
+            $('.button.show-text').click(function () {
+                $text.show(200);
+            });
+
+            $("p:first").text("DOM first!");
+            $("p:last").text("DOM last!");
+
+            $text.hover(
+                function () { $(this).addClass('hovered'); },
+                function () { $(this).removeClass('hovered'); }
+            );
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1> Завдання 2</h1>
+
+    <a href="#" class="button show-text">Натисніть, щоб показати текст</a>
+    <div id="hide_text">Демонстраційний прихований текст</div>
+
+    <p>Перший абзац</p>
+    <p>Останній абзац</p>
+
+</body>
+
+</html>
